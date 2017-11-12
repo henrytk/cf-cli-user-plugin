@@ -10,6 +10,9 @@ install:
 uninstall:
 	cf uninstall-plugin $(NAME)
 
+.PHONY: reinstall
+reinstall: uninstall install
+
 .PHONY: clean
 clean:
 	rm -rf bin
