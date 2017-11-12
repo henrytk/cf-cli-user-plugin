@@ -1,15 +1,18 @@
 package main
 
 import (
-	"fmt"
+	"github.com/spf13/cobra"
 
 	"code.cloudfoundry.org/cli/plugin"
 )
 
-type UserPlugin struct{}
+type UserPlugin struct {
+	cmd *cobra.Command
+}
 
 func (up *UserPlugin) Run(cliConnection plugin.CliConnection, args []string) {
-	fmt.Println("User plugin called with args: ", args)
+	up.cmd.SetArgs(args)
+	up.cmd.Execute()
 }
 
 func (up *UserPlugin) GetMetadata() plugin.PluginMetadata {
