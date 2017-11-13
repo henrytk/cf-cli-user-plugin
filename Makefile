@@ -11,7 +11,7 @@ uninstall:
 	cf uninstall-plugin $(NAME)
 
 .PHONY: reinstall
-reinstall: uninstall install
+reinstall: uninstall install clean
 
 .PHONY: clean
 clean:
